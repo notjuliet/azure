@@ -1,0 +1,16 @@
+{
+  "name": "azure",
+  "module": "./bot.js",
+  "type": "module",
+  "devDependencies": {
+    "@atcute/bluesky": "^1.0.8",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@atcute/client": "^2.0.4",
+    "discord.js": "^14.16.3"
+  }
+}
