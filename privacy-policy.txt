@@ -1,0 +1,23 @@
+Privacy Policy for Bluesky Bot
+
+This Privacy Policy governs the collection, use, and sharing of personal information by Bluesky Bot, a Discord bot developed by Juliet Philippe. By using Bluesky Bot, you agree to the terms of this Privacy Policy.
+
+Information We Collect
+
+We do not store any information that you provide to us through your use of the bot.
+
+Sharing Your Information
+
+We do not sell or share your personal information with third parties.
+
+Changes to this Policy
+
+We may update this Privacy Policy from time to time, and we will post the updated policy on this page. Your continued use of Bluesky Bot after we make changes to this policy indicates your acceptance of the revised policy.
+
+Contact Us
+
+If you have any questions or concerns about this Privacy Policy, please contact us at notjuliet@riseup.net
+
+Effective Date
+
+This Privacy Policy is effective as of 11/07/24.
