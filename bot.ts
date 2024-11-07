@@ -206,6 +206,7 @@ client.on("interactionCreate", async (interaction) => {
           return;
         }
       }
+      await interaction.reply(`Could not find the feed`);
     } catch {
       await interaction.reply(`Could not find the feed`);
     }
