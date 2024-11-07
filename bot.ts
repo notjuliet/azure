@@ -3,11 +3,12 @@ import {
   EmbedBuilder,
   Events,
   GatewayIntentBits,
+  REST,
+  Routes,
   SlashCommandBuilder,
 } from "discord.js";
 import { XRPC, CredentialManager } from "@atcute/client";
 import "@atcute/bluesky/lexicons";
-import { REST, Routes } from "discord.js";
 
 const commands = [
   {
