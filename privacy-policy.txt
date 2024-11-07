@@ -1,6 +1,6 @@
-Privacy Policy for Bluesky Bot
+Privacy Policy for Azure
 
-This Privacy Policy governs the collection, use, and sharing of personal information by Bluesky Bot, a Discord bot developed by Juliet Philippe. By using Bluesky Bot, you agree to the terms of this Privacy Policy.
+This Privacy Policy governs the collection, use, and sharing of personal information by Azure, a Discord bot developed by Juliet Philippe. By using Azure, you agree to the terms of this Privacy Policy.
 
 Information We Collect
 
@@ -12,7 +12,7 @@ We do not sell or share your personal information with third parties.
 
 Changes to this Policy
 
-We may update this Privacy Policy from time to time, and we will post the updated policy on this page. Your continued use of Bluesky Bot after we make changes to this policy indicates your acceptance of the revised policy.
+We may update this Privacy Policy from time to time, and we will post the updated policy on this page. Your continued use of Azure after we make changes to this policy indicates your acceptance of the revised policy.
 
 Contact Us
 
