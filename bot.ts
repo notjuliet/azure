@@ -43,6 +43,23 @@ const commands = [
           .setRequired(true),
       ),
   },
+  {
+    data: new SlashCommandBuilder()
+      .setName("feed")
+      .setDescription("Feed from a Bluesky user")
+      .addStringOption((option) =>
+        option
+          .setName("actor")
+          .setDescription("Handle or DID")
+          .setRequired(true),
+      )
+      .addStringOption((option) =>
+        option
+          .setName("feed")
+          .setDescription("Display name or record key of the feed")
+          .setRequired(true),
+      ),
+  },
 ];
 
 const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN!);
@@ -147,6 +164,50 @@ client.on("interactionCreate", async (interaction) => {
       await interaction.reply(`\`${did}\` -> \`${handle}\``);
     } catch {
       await interaction.reply(`Could not resolve \`${did}\``);
+    }
+  }
+  // NOTE: dumb search and no pagination
+  if (interaction.commandName === "feed") {
+    const actor = interaction.options.getString("actor", true);
+    const feedName = interaction.options.getString("feed", true);
+    try {
+      const res = await rpc.get("app.bsky.feed.getActorFeeds", {
+        params: { actor: actor, limit: 100 },
+      });
+      for (const feed of res.data.feeds) {
+        if (
+          feed.displayName.toLowerCase() === feedName.toLowerCase() ||
+          feed.uri.split("/").pop()! === feedName
+        ) {
+          const feedEmbed = new EmbedBuilder()
+            .setColor(0x2fb6f5)
+            .setTitle(feed.displayName)
+            .setAuthor({
+              name: `@${feed.creator.handle}`,
+              url: `https://bsky.app/profile/${feed.creator.did}`,
+              iconURL: feed.creator.avatar,
+            })
+            .setURL(
+              `https://bsky.app/profile/${feed.uri.replace("at://", "").replace("/app.bsky.feed.generator/", "/feed/")}`,
+            )
+            .setThumbnail(feed.avatar ?? null);
+          if (feed.likeCount)
+            feedEmbed.addFields({
+              name: "Likes",
+              value: feed.likeCount.toString(),
+              inline: true,
+            });
+          if (feed.description)
+            feedEmbed.addFields({
+              name: "Description",
+              value: feed.description,
+            });
+          await interaction.reply({ embeds: [feedEmbed] });
+          return;
+        }
+      }
+    } catch {
+      await interaction.reply(`Could not find the feed`);
     }
   }
 });
